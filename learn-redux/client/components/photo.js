@@ -20,11 +20,18 @@ const Photo = React.createClass({
           </CSSTransitionGroup>
         </div>
 
-        <figure>
+        <figcaption>
           <p>{post.caption}</p>
-          <button className="likes">&hearts; {post.likes}</button>
-          <Link></Link>
-        </figure>
+          <div className="control-buttons">
+            <button onClick={this.props.increment.bind(null, i)} className="likes">&hearts;{post.likes}</button>
+            <Link className="button" to={`/view/${post.code}`}>
+              <span className="comment-count">
+                <span className="speech-bubble"></span>
+                {comments[post.code] ? comments[post.code].length : 0}
+              </span>
+            </Link>
+          </div>
+        </figcaption>
       </figure>
     );
   },
