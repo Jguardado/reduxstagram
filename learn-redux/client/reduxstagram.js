@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 //Import CSS
 import css from './styles/style.styl';
 
-import Main from './components/main';
+import App from './components/app';
 import Single from './components/single';
 import Photogrid from './components/photogrid';
 
@@ -15,12 +15,14 @@ import { Provider } from 'react-redux';
 import store, { history } from './store';
 
 const router = (
-  <Router histroy={browserHistory}>
-    <Route path="/" component={Main}>
-      <IndexRoute component={Photogrid}></IndexRoute>
-      <Route path="/view/:postId" component={Single}></Route>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router histroy={ history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Photogrid}></IndexRoute>
+        <Route path="/view/:postId" component={Single}></Route>
+      </Route>
+    </Router>
+  </Provider>
 );
 
 render(router, document.getElementById('root'));
