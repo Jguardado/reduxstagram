@@ -5,7 +5,7 @@ const Main = React.createClass({
   render() {
     return (
       <div>
-        <h1 Link to ="/">Reduxagrat</h1>
+        <h1><Link to ="/">Reduxagrat</Link></h1>
         {React.cloneElement(this.props.children, this.props)}
       </div>
     );
