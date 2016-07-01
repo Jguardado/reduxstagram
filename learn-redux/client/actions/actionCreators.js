@@ -17,10 +17,10 @@ export function addComment(postId, author, comment) {
 }
 
 // remove comment
-export function removeComment(postID, index) {
+export function removeComment(postId, i) {
   return {
     type: 'REMOVE_COMMENT',
-    postId: postId,
-    index: index,
+    i,
+    postId,
   };
 }
